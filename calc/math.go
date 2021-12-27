@@ -1,5 +1,7 @@
 package calc
 
+import "errors"
+
 // func Add(i, j int) int {
 // 	return i + j
 // }
@@ -12,10 +14,10 @@ package calc
 // 	return sum
 // }
 
-func Add(numbers ...int) (string, int) {
+func Add(numbers ...int) (error, int) {
 	sum := 0
 	if len(numbers) < 2 {
-		return "provide more than 2 numbers", sum
+		return errors.New("provide more than 2 numbers"), sum
 	}
 	for _, num := range numbers {
 		sum += num
